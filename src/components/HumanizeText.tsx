@@ -2,8 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { ScrollArea } from "@/components/ui/scroll-area";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
@@ -49,37 +48,42 @@ export const HumanizeText = () => {
       </div>
 
       <Card className="p-6 space-y-4 bg-card/50 backdrop-blur-sm border-border/50">
-        <div className="space-y-2">
-          <label className="text-foreground font-extralight text-4xl">Writing Style</label>
-          <Select value={style} onValueChange={setStyle}>
-            <SelectTrigger className="w-full md:w-[250px] text-base font-thin">
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="standard">Standard (Natural)</SelectItem>
-              <SelectItem value="academic">Academic</SelectItem>
-              <SelectItem value="simple">Simple</SelectItem>
-              <SelectItem value="formal">Formal</SelectItem>
-              <SelectItem value="informal">Informal</SelectItem>
-              <SelectItem value="expand">Expand</SelectItem>
-              <SelectItem value="shorten">Shorten</SelectItem>
-            </SelectContent>
-          </Select>
+        <div className="space-y-3">
+          <label className="text-foreground text-xl font-extralight">Writing Style</label>
+          <ToggleGroup type="single" value={style} onValueChange={(value) => value && setStyle(value)} className="justify-start flex-wrap gap-2">
+            <ToggleGroupItem value="standard" className="rounded-full px-4 py-2 data-[state=on]:bg-primary data-[state=on]:text-primary-foreground">
+              Standard
+            </ToggleGroupItem>
+            <ToggleGroupItem value="academic" className="rounded-full px-4 py-2 data-[state=on]:bg-primary data-[state=on]:text-primary-foreground">
+              Academic
+            </ToggleGroupItem>
+            <ToggleGroupItem value="simple" className="rounded-full px-4 py-2 data-[state=on]:bg-primary data-[state=on]:text-primary-foreground">
+              Simple
+            </ToggleGroupItem>
+            <ToggleGroupItem value="formal" className="rounded-full px-4 py-2 data-[state=on]:bg-primary data-[state=on]:text-primary-foreground">
+              Formal
+            </ToggleGroupItem>
+            <ToggleGroupItem value="informal" className="rounded-full px-4 py-2 data-[state=on]:bg-primary data-[state=on]:text-primary-foreground">
+              Informal
+            </ToggleGroupItem>
+            <ToggleGroupItem value="expand" className="rounded-full px-4 py-2 data-[state=on]:bg-primary data-[state=on]:text-primary-foreground">
+              Expand
+            </ToggleGroupItem>
+            <ToggleGroupItem value="shorten" className="rounded-full px-4 py-2 data-[state=on]:bg-primary data-[state=on]:text-primary-foreground">
+              Shorten
+            </ToggleGroupItem>
+          </ToggleGroup>
         </div>
 
         <div className="grid md:grid-cols-2 gap-4">
           <div className="space-y-2">
             <label className="text-foreground text-xl font-thin">Input Text</label>
-            <ScrollArea className="h-[300px] rounded-3xl border border-input bg-black">
-              <Textarea placeholder="Paste your AI-generated text here..." value={inputText} onChange={e => setInputText(e.target.value)} className="min-h-[300px] resize-none rounded-3xl bg-transparent border-0 focus-visible:ring-0 focus-visible:ring-offset-0" />
-            </ScrollArea>
+            <Textarea placeholder="Paste your AI-generated text here..." value={inputText} onChange={e => setInputText(e.target.value)} className="min-h-[300px] resize-none rounded-3xl bg-black" />
           </div>
 
           <div className="space-y-2">
             <label className="text-foreground text-xl font-extralight">Humanized Output</label>
-            <ScrollArea className="h-[300px] rounded-3xl border border-input bg-background">
-              <Textarea placeholder="Your humanized text will appear here..." value={outputText} readOnly className="min-h-[300px] resize-none bg-transparent border-0 focus-visible:ring-0 focus-visible:ring-offset-0" />
-            </ScrollArea>
+            <Textarea placeholder="Your humanized text will appear here..." value={outputText} readOnly className="min-h-[300px] resize-none bg-background rounded-3xl" />
           </div>
         </div>
 
