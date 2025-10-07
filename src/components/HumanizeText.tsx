@@ -78,7 +78,7 @@ export const HumanizeText = () => {
           </div>
         </div>
 
-        <Button onClick={handleHumanize} disabled={isLoading || !inputText.trim()} className="w-full md:w-auto" size="lg">
+        <Button onClick={handleHumanize} disabled={isLoading || !inputText.trim()} size="lg" className="w-full md:w-auto font-light">
           {isLoading ? <>
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
               Humanizing...
