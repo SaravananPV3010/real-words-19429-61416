@@ -49,7 +49,7 @@ export const HumanizeText = () => {
 
       <Card className="p-6 space-y-4 bg-card/50 backdrop-blur-sm border-border/50">
         <div className="space-y-2">
-          <label className="text-sm font-medium text-foreground">Writing Style</label>
+          <label className="text-foreground text-5xl font-extralight">Writing Style</label>
           <Select value={style} onValueChange={setStyle}>
             <SelectTrigger className="w-full md:w-[250px]">
               <SelectValue />
