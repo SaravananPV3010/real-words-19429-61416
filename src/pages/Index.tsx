@@ -21,18 +21,7 @@ const Index = () => {
             </InteractiveText>
           </p>
 
-          <div className="pt-8 space-y-4">
-            <p className="text-lg">
-              <InteractiveText>
-                Hover over the text to magnify characters
-              </InteractiveText>
-            </p>
-            <p className="text-lg">
-              <InteractiveText>
-                Watch particles scatter as you move
-              </InteractiveText>
-            </p>
-          </div>
+          
         </div>
 
         <HumanizeText />
