@@ -14,7 +14,7 @@ const Index = () => {
       <div className="relative z-20 flex flex-col items-center justify-center min-h-screen px-8 py-16">
         <div className="max-w-4xl text-center space-y-12 mb-16">
           <h1 className="text-6xl md:text-8xl font-bold">
-            <InteractiveText>Interactive Experience</InteractiveText>
+            <InteractiveText>humanify.ai</InteractiveText>
           </h1>
           
           <p className="text-xl md:text-2xl text-muted-foreground">
