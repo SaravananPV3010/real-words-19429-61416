@@ -3,17 +3,15 @@ import { GridBackground } from "@/components/GridBackground";
 import { ParticleField } from "@/components/ParticleField";
 import { InteractiveText } from "@/components/InteractiveText";
 import { HumanizeText } from "@/components/HumanizeText";
-
 const Index = () => {
-  return (
-    <div className="min-h-screen bg-background relative overflow-hidden">
+  return <div className="min-h-screen bg-background relative overflow-hidden">
       <GridBackground />
       <ParticleField />
       <TargetCursor spinDuration={2} hideDefaultCursor={true} />
       
       <div className="relative z-20 flex flex-col items-center justify-center min-h-screen px-8 py-16">
         <div className="max-w-4xl text-center space-y-12 mb-16">
-          <h1 className="text-6xl md:text-8xl font-bold">
+          <h1 className="text-6xl md:text-7xl font-light">
             <InteractiveText>humanify.ai</InteractiveText>
           </h1>
           
@@ -39,8 +37,6 @@ const Index = () => {
 
         <HumanizeText />
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
