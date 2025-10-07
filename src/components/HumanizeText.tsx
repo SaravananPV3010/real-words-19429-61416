@@ -49,8 +49,8 @@ export const HumanizeText = () => {
 
       <Card className="p-6 space-y-4 bg-card/50 backdrop-blur-sm border-border/50">
         <div className="space-y-3">
-          <label className="text-foreground text-xl font-extralight">Writing Style</label>
-          <ToggleGroup type="single" value={style} onValueChange={(value) => value && setStyle(value)} className="justify-start flex-wrap gap-2">
+          <label className="text-foreground font-extralight text-3xl">Writing Style</label>
+          <ToggleGroup type="single" value={style} onValueChange={value => value && setStyle(value)} className="justify-start flex-wrap gap-2">
             <ToggleGroupItem value="standard" className="rounded-full px-4 py-2 data-[state=on]:bg-primary data-[state=on]:text-primary-foreground">
               Standard
             </ToggleGroupItem>
