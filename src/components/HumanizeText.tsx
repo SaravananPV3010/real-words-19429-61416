@@ -43,7 +43,7 @@ export const HumanizeText = () => {
   };
   return <div className="w-full max-w-6xl mx-auto space-y-6">
       <div className="text-center space-y-2">
-        <h2 className="text-4xl text-slate-50 text-center font-extralight">AI to Human Text Converter</h2>
+        <h2 className="text-4xl text-slate-50 font-light text-center">AI to Human Text Converter</h2>
         <p className="text-muted-foreground font-thin">Transform AI-generated text into natural, human-like writing</p>
       </div>
 
@@ -78,7 +78,7 @@ export const HumanizeText = () => {
           </div>
         </div>
 
-        <Button onClick={handleHumanize} disabled={isLoading || !inputText.trim()} size="lg" className="w-full md:w-auto font-light rounded-lg text-black">
+        <Button onClick={handleHumanize} disabled={isLoading || !inputText.trim()} size="lg" className="w-full md:w-auto font-light rounded-lg text-black bg-white">
           {isLoading ? <>
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
               Humanizing...
