@@ -19,7 +19,7 @@ const Index = () => {
           
           <p className="text-xl md:text-2xl text-muted-foreground">
             <InteractiveText>
-              Move your cursor to see the magic
+              Transform your AI-generated content into natural, human-like text with the ultimate humanify.ai tool. This ai-to-human text converter effortlessly converts output from ChatGPT, Bard, Jasper, Grammarly, GPT4, and other AI text generators into text indistinguishable from human writing.
             </InteractiveText>
           </p>
 
