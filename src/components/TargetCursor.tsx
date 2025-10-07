@@ -1,4 +1,4 @@
-import { useEffect, useRef, useCallback, useMemo } from 'react';
+import { useEffect, useRef, useCallback, useMemo, useState } from 'react';
 import { gsap } from 'gsap';
 import './TargetCursor.css';
 
@@ -13,6 +13,7 @@ const TargetCursor = ({ targetSelector = '.cursor-target', spinDuration = 2, hid
   const cornersRef = useRef(null);
   const spinTl = useRef(null);
   const dotRef = useRef(null);
+  const [isHidden, setIsHidden] = useState(false);
   const constants = useMemo(
     () => ({
       borderWidth: 3,
@@ -120,6 +121,25 @@ const TargetCursor = ({ targetSelector = '.cursor-target', spinDuration = 2, hid
 
     window.addEventListener('mousedown', mouseDownHandler);
     window.addEventListener('mouseup', mouseUpHandler);
+
+    //----------------------------------------------------------------
+    // Hide cursor when focusing on input/textarea elements
+    const handleFocus = (e: FocusEvent) => {
+      const target = e.target as HTMLElement;
+      if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA') {
+        setIsHidden(true);
+      }
+    };
+
+    const handleBlur = (e: FocusEvent) => {
+      const target = e.target as HTMLElement;
+      if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA') {
+        setIsHidden(false);
+      }
+    };
+
+    document.addEventListener('focusin', handleFocus);
+    document.addEventListener('focusout', handleBlur);
 
     //----------------------------------------------------------------
     const enterHandler = (e: Event) => {
@@ -307,6 +327,10 @@ const TargetCursor = ({ targetSelector = '.cursor-target', spinDuration = 2, hid
       window.removeEventListener('mousemove', moveHandler);
       window.removeEventListener('mouseover', enterHandler);
       window.removeEventListener('scroll', scrollHandler);
+      window.removeEventListener('mousedown', mouseDownHandler);
+      window.removeEventListener('mouseup', mouseUpHandler);
+      document.removeEventListener('focusin', handleFocus);
+      document.removeEventListener('focusout', handleBlur);
 
       if (activeTarget) {
         cleanupTarget(activeTarget);
@@ -331,7 +355,7 @@ const TargetCursor = ({ targetSelector = '.cursor-target', spinDuration = 2, hid
   }, [spinDuration]);
 
   return (
-    <div ref={cursorRef} className="target-cursor-wrapper">
+    <div ref={cursorRef} className="target-cursor-wrapper" style={{ opacity: isHidden ? 0 : 1 }}>
       <div ref={dotRef} className="target-cursor-dot" />
       <div className="target-cursor-corner corner-tl" />
       <div className="target-cursor-corner corner-tr" />
