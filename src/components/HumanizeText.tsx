@@ -73,7 +73,7 @@ export const HumanizeText = () => {
           </div>
 
           <div className="space-y-2">
-            <label className="text-sm font-medium text-foreground">Humanized Output</label>
+            <label className="text-foreground text-xl font-extralight">Humanized Output</label>
             <Textarea placeholder="Your humanized text will appear here..." value={outputText} readOnly className="min-h-[300px] resize-none bg-background" />
           </div>
         </div>
