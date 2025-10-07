@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
@@ -69,12 +70,16 @@ export const HumanizeText = () => {
         <div className="grid md:grid-cols-2 gap-4">
           <div className="space-y-2">
             <label className="text-foreground text-xl font-thin">Input Text</label>
-            <Textarea placeholder="Paste your AI-generated text here..." value={inputText} onChange={e => setInputText(e.target.value)} className="min-h-[300px] resize-none rounded-3xl bg-black" />
+            <ScrollArea className="h-[300px] rounded-3xl border border-input bg-black">
+              <Textarea placeholder="Paste your AI-generated text here..." value={inputText} onChange={e => setInputText(e.target.value)} className="min-h-[300px] resize-none rounded-3xl bg-transparent border-0 focus-visible:ring-0 focus-visible:ring-offset-0" />
+            </ScrollArea>
           </div>
 
           <div className="space-y-2">
             <label className="text-foreground text-xl font-extralight">Humanized Output</label>
-            <Textarea placeholder="Your humanized text will appear here..." value={outputText} readOnly className="min-h-[300px] resize-none bg-background rounded-3xl" />
+            <ScrollArea className="h-[300px] rounded-3xl border border-input bg-background">
+              <Textarea placeholder="Your humanized text will appear here..." value={outputText} readOnly className="min-h-[300px] resize-none bg-transparent border-0 focus-visible:ring-0 focus-visible:ring-offset-0" />
+            </ScrollArea>
           </div>
         </div>
 
