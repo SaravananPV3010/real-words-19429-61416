@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
-import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
@@ -43,36 +43,27 @@ export const HumanizeText = () => {
   };
   return <div className="w-full max-w-6xl mx-auto space-y-6">
       <div className="text-center space-y-2">
-        <h2 className="text-4xl text-slate-50 font-light text-center">AI to Human Text Converter</h2>
+        <h2 className="text-4xl text-slate-50 text-center font-extralight">AI to Human Text Converter</h2>
         <p className="text-muted-foreground font-thin">Transform AI-generated text into natural, human-like writing</p>
       </div>
 
       <Card className="p-6 space-y-4 bg-card/50 backdrop-blur-sm border-border/50">
-        <div className="space-y-3">
-          <label className="text-foreground text-xl font-extralight">Writing Style</label>
-          <ToggleGroup type="single" value={style} onValueChange={(value) => value && setStyle(value)} className="justify-start flex-wrap gap-2">
-            <ToggleGroupItem value="standard" className="rounded-full px-4 py-2 data-[state=on]:bg-primary data-[state=on]:text-primary-foreground">
-              Standard
-            </ToggleGroupItem>
-            <ToggleGroupItem value="academic" className="rounded-full px-4 py-2 data-[state=on]:bg-primary data-[state=on]:text-primary-foreground">
-              Academic
-            </ToggleGroupItem>
-            <ToggleGroupItem value="simple" className="rounded-full px-4 py-2 data-[state=on]:bg-primary data-[state=on]:text-primary-foreground">
-              Simple
-            </ToggleGroupItem>
-            <ToggleGroupItem value="formal" className="rounded-full px-4 py-2 data-[state=on]:bg-primary data-[state=on]:text-primary-foreground">
-              Formal
-            </ToggleGroupItem>
-            <ToggleGroupItem value="informal" className="rounded-full px-4 py-2 data-[state=on]:bg-primary data-[state=on]:text-primary-foreground">
-              Informal
-            </ToggleGroupItem>
-            <ToggleGroupItem value="expand" className="rounded-full px-4 py-2 data-[state=on]:bg-primary data-[state=on]:text-primary-foreground">
-              Expand
-            </ToggleGroupItem>
-            <ToggleGroupItem value="shorten" className="rounded-full px-4 py-2 data-[state=on]:bg-primary data-[state=on]:text-primary-foreground">
-              Shorten
-            </ToggleGroupItem>
-          </ToggleGroup>
+        <div className="space-y-2">
+          <label className="text-foreground text-5xl font-extralight">Writing Style</label>
+          <Select value={style} onValueChange={setStyle}>
+            <SelectTrigger className="w-full md:w-[250px]">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="standard">Standard (Natural)</SelectItem>
+              <SelectItem value="academic">Academic</SelectItem>
+              <SelectItem value="simple">Simple</SelectItem>
+              <SelectItem value="formal">Formal</SelectItem>
+              <SelectItem value="informal">Informal</SelectItem>
+              <SelectItem value="expand">Expand</SelectItem>
+              <SelectItem value="shorten">Shorten</SelectItem>
+            </SelectContent>
+          </Select>
         </div>
 
         <div className="grid md:grid-cols-2 gap-4">
