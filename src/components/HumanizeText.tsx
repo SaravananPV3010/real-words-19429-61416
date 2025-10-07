@@ -69,12 +69,12 @@ export const HumanizeText = () => {
         <div className="grid md:grid-cols-2 gap-4">
           <div className="space-y-2">
             <label className="text-foreground text-xl font-thin">Input Text</label>
-            <Textarea placeholder="Paste your AI-generated text here..." value={inputText} onChange={e => setInputText(e.target.value)} className="min-h-[300px] resize-none bg-background" />
+            <Textarea placeholder="Paste your AI-generated text here..." value={inputText} onChange={e => setInputText(e.target.value)} className="min-h-[300px] resize-none rounded-3xl bg-black" />
           </div>
 
           <div className="space-y-2">
             <label className="text-foreground text-xl font-extralight">Humanized Output</label>
-            <Textarea placeholder="Your humanized text will appear here..." value={outputText} readOnly className="min-h-[300px] resize-none bg-background" />
+            <Textarea placeholder="Your humanized text will appear here..." value={outputText} readOnly className="min-h-[300px] resize-none bg-background rounded-3xl" />
           </div>
         </div>
 
