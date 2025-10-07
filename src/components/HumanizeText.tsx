@@ -44,7 +44,7 @@ export const HumanizeText = () => {
   return <div className="w-full max-w-6xl mx-auto space-y-6">
       <div className="text-center space-y-2">
         <h2 className="text-4xl text-slate-50 font-light text-center">AI to Human Text Converter</h2>
-        <p className="text-muted-foreground">Transform AI-generated text into natural, human-like writing</p>
+        <p className="text-muted-foreground font-thin">Transform AI-generated text into natural, human-like writing</p>
       </div>
 
       <Card className="p-6 space-y-4 bg-card/50 backdrop-blur-sm border-border/50">
