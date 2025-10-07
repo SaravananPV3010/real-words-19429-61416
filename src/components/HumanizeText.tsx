@@ -68,7 +68,7 @@ export const HumanizeText = () => {
 
         <div className="grid md:grid-cols-2 gap-4">
           <div className="space-y-2">
-            <label className="text-sm font-medium text-foreground">Input Text</label>
+            <label className="text-foreground text-xl font-thin">Input Text</label>
             <Textarea placeholder="Paste your AI-generated text here..." value={inputText} onChange={e => setInputText(e.target.value)} className="min-h-[300px] resize-none bg-background" />
           </div>
 
