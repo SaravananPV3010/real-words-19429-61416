@@ -31,7 +31,7 @@ export const InteractiveText = ({
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
   const characters = children.split("");
-  return <div ref={textRef} className={`interactive-text cursor-target text-justify ${className}`}>
+  return <div ref={textRef} className={`interactive-text cursor-target text-center ${className}`}>
       {characters.map((char, index) => <span key={index} style={{
       color: hoveredIndex === index ? "hsl(var(--foreground))" : "hsl(var(--muted-foreground))",
       transform: hoveredIndex === index ? "scale(1.3)" : hoveredIndex !== null && Math.abs(hoveredIndex - index) === 1 ? "scale(1.15)" : "scale(1)",
