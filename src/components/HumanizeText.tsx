@@ -6,6 +6,7 @@ import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
+import { InteractiveText } from "@/components/InteractiveText";
 export const HumanizeText = () => {
   const [inputText, setInputText] = useState("");
   const [outputText, setOutputText] = useState("");
@@ -43,13 +44,19 @@ export const HumanizeText = () => {
   };
   return <div className="w-full max-w-6xl mx-auto space-y-6">
       <div className="text-center space-y-2">
-        <h2 className="text-4xl text-slate-50 font-light text-center">AI to Human Text Converter</h2>
-        <p className="text-muted-foreground font-thin">Transform AI-generated text into natural, human-like writing</p>
+        <h2 className="text-4xl text-slate-50 font-light text-center">
+          <InteractiveText>AI to Human Text Converter</InteractiveText>
+        </h2>
+        <p className="text-muted-foreground font-thin">
+          <InteractiveText>Transform AI-generated text into natural, human-like writing</InteractiveText>
+        </p>
       </div>
 
       <Card className="p-6 space-y-4 bg-card/50 backdrop-blur-sm border-border/50">
         <div className="space-y-3">
-          <label className="text-foreground font-extralight text-3xl">Writing Style</label>
+          <label className="text-foreground font-extralight text-3xl">
+            <InteractiveText>Writing Style</InteractiveText>
+          </label>
           <ToggleGroup type="single" value={style} onValueChange={value => value && setStyle(value)} className="justify-start flex-wrap gap-2">
             <ToggleGroupItem value="standard" className="rounded-full px-4 py-2 data-[state=on]:bg-primary data-[state=on]:text-primary-foreground">
               Standard
@@ -77,12 +84,16 @@ export const HumanizeText = () => {
 
         <div className="grid md:grid-cols-2 gap-4">
           <div className="space-y-2">
-            <label className="text-foreground text-xl font-thin">Input Text</label>
+            <label className="text-foreground text-xl font-thin">
+              <InteractiveText>Input Text</InteractiveText>
+            </label>
             <Textarea placeholder="Paste your AI-generated text here..." value={inputText} onChange={e => setInputText(e.target.value)} className="min-h-[300px] resize-none rounded-3xl bg-black" />
           </div>
 
           <div className="space-y-2">
-            <label className="text-foreground text-xl font-extralight">Humanized Output</label>
+            <label className="text-foreground text-xl font-extralight">
+              <InteractiveText>Humanized Output</InteractiveText>
+            </label>
             <Textarea placeholder="Your humanized text will appear here..." value={outputText} readOnly className="min-h-[300px] resize-none bg-background rounded-3xl" />
           </div>
         </div>
