@@ -15,7 +15,7 @@ const App = () => (
       <div className="relative min-h-screen">
         <div className="fixed inset-0 z-0">
           <Particles
-            particleColors={['#ffffff', '#ffffff', '#ffffff']}
+            particleColors={['#F4C430', '#FF9933', '#FFBF00']}
             particleCount={300}
             particleSpread={15}
             speed={0.08}
